@@ -1,0 +1,11 @@
+# Docker image TAG
+DTAG="vkushnir/freeradius:2-oracle"
+
+# DOcker shell
+DSHELL="bash"
+
+# Docker run options
+DOPT="-v /data/volumes/radius/radvoip-log/freeradius2:/etc/freeradius -p 88.151.177.20:1812-1813:1812-1813/udp"
+
+# Docker exec defaults
+DEXEC="radsniff -xs r@dSecret -i eth0"
