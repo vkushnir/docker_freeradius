@@ -1,4 +1,4 @@
-FROM ubuntu:16.04 as build
+FROM vkushnir/oracle-instantclient as build
 
 COPY include/localtime /etc/
 
@@ -50,8 +50,8 @@ RUN apt-get update \
  && rm -rf /var/lib/apt/lists/*
 
 COPY --from=build /usr/local/lib/rlm_sql_oracle.* /usr/lib/freeradius/
-COPY include/localtime /etc
-COPY include/entrypoint.sh /usr/bin/
+COPY include/localtime /etc/
+COPY include/*.sh include/*.pl /usr/bin/
 
 EXPOSE 1812/udp 1813/udp
 
